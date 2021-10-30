@@ -17,17 +17,18 @@ A distilbart model finetuned for natural language inference is repurposed for ze
 
 1. Set a `DISCORD` environment variable with your bot's secret client token.
 2. Edit the [text_filters.txt](./text_filters.txt) file with the topics you want to restrict. Each new topic should be a new line.
-3. Run the `modbot.py` script with `python modbot.py`. Voila! Your bot is not active and will automatically delete messages which belong to the topics mentioned in your filter.
+3. Run the `modbot.py` script with `python modbot.py`. Voila! Your bot is not active and will automatically delete messages which belong to the topics mentioned in your filter. You can edit the [text_filters.txt](./text_filters.txt) file while the bot is running without the need to restart the bot for new filters.
 
 ## Use Cases
 
 1. It can be used for filtering messages which contain hate speech, racism, or other such disrespectful slurs.
 2. You can use this bot for keeping the chat of your users on-topic in a channel and remove off-topic messages.
 
-## Disclaimer
+## Disclaimer and Tips for Improvements
 
 - This is a purely experimental project and not ready for use in large communities. The AI used may contain social biases and can even wrongly delete messages.
 - Ideally, if you want to deploy it to your discord server, you may want to implement a grievance system so users can report wrongfully deleted messages. You might also want to implement a feedback loop to improve the model overtime.
+- An ensemble of models might even work better using different variants of distilbart.
 - All in all, use this model at your own risk.
 
 ## References

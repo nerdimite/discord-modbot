@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 client = disnake.Client()
-text_mod = TextModerator()  # Initialize the NLI Model
+text_mod = TextModerator(threshold=0.3)  # Initialize the NLI Model
 
 
 @client.event
@@ -38,8 +38,10 @@ async def on_message(message):
         # Text Moderation
         if len(message.content) > 3:
 
+            logging.info(f"[Message] {message.content}")
+
             result, full_output = text_mod.predict(message.content)
-            logging.info(f"NLI Outputs on Message Text: {full_output}")
+            logging.info(f"[Prediction] {full_output}")
 
             if result[0]:
                 await message.delete()
